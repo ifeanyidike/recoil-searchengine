@@ -1,0 +1,7 @@
+.home__actions{
+    border: 0;
+    cursor: pointer;
+}
+.home__actions:hover{
+    box-shadow: 3px 3px 2px 0px RGBA(233,233,233,1);
+}

@@ -1,0 +1,70 @@
+.searchbar{
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid #c1c1c1;
+    height: 40px;
+    position: relative;
+    z-index: 5;
+}
+
+.searchbar:hover{
+    box-shadow: 3px 3px 2px 0px RGBA(233,233,233,1);
+}
+
+.searchbar__input{
+    outline: 0;
+    border: 0;
+    height:88%;
+    flex: 0.92;
+    width: 100%;
+    background-color: transparent;
+}
+
+.searchbar__icon{
+    flex: 0.04;
+}
+
+.searchbar__dropdown{
+    cursor: pointer;
+    flex: 0.04; 
+    z-index: 5;
+}
+.backdrop{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.01)
+}
+
+.dropdown{
+    position: absolute;
+    transition: all 0.5s ease;
+    width: 200px;
+    right: 0;
+    top: 40px;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1.2px 0.5px RGBA(23,23,23,1);
+    
+}
+
+.searchbar__iconAction{
+    flex: 0.04;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    cursor:pointer;
+}
+
+.searchbar__iconAction:hover{
+    border: 0;
+    outline: 0;
+    box-shadow: 0 !important;
+}
