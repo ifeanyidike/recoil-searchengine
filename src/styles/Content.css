@@ -1,0 +1,27 @@
+.content{
+    margin: 10px 0;
+}
+.toplink{
+    text-decoration: none;
+    color: #5f6368;
+}
+.title{
+    margin: 5px 0;
+}
+.title a{
+    text-decoration: none;
+    color: #1a0dab;
+}
+.title a:hover{
+    text-decoration: underline;
+}
+.img{
+    width: 100%;
+    
+}
+
+.desc{
+    margin: 5px 0;
+    line-height: 1.7;
+    color: #5f6368;
+}

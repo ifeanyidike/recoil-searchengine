@@ -5,19 +5,18 @@ import Searchbar from '../components/Searchbar'
 import '../styles/Home.css'
 import { useHistory } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import { sortByState } from '../recoil'
+import { qStringState, sortByState } from '../recoil'
 
 const Home = () => {
     const [search, setSearch] = useState('')
+    const [qString, setQString] = useRecoilState(qStringState)
     const [radioValue] = useRecoilState(sortByState)
 
     const history = useHistory()
 
     const handleSubmit = e => {
         e.preventDefault()
-        if (search !== '') {
-            history.push(`/search?q=${search}&sortby=${radioValue}`)
-        }
+        history.push(`/search?q=${search}&sortby=${radioValue}`)
     }
     return (
         <div className='home'>

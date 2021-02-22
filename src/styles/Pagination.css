@@ -1,0 +1,13 @@
+.pagination{
+    display: flex;
+    align-items: center;
+}
+
+.pagebutton{
+    width: 10px !important;
+    height: 10px  !important;
+    font-size: 1rem  !important;
+    display: flex;
+    align-items: center;
+}
+

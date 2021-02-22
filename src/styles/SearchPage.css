@@ -1,3 +1,54 @@
 .searchpage{
-   
+   display: grid;
+   place-items: center; 
+}
+
+.items__container{
+    display: grid;
+    place-items: center;
+    
+}
+
+.header{
+    min-width: 50vw;
+}
+
+.borderline{
+    height: 1px;
+    width: 100%;
+    background-color: #eee;
+}
+.topnav{
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total{
+    color: #5f6368;
+}
+
+.topnav, .header, main{
+   width: 60%;
+}
+
+.error{
+    display: grid;
+    place-items: center;
+}
+
+.error h2{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px){
+    .topnav{
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    .total{
+        margin-bottom: 5px;
+    }
 }

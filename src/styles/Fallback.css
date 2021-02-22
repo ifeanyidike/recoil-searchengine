@@ -1,0 +1,11 @@
+.fallback{
+    width: 100vh;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.roller{
+    color: #fff;
+    z-index: 5;
+}

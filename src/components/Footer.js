@@ -4,7 +4,7 @@ import '../styles/Footer.css'
 const Footer = () => {
     return (
         <footer>
-            &copy; 2021. All right reserved
+            FunkySearch. &copy; 2021. All right reserved
         </footer>
     )
 }

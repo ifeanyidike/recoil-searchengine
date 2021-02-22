@@ -8,6 +8,8 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import { sortByState } from '../recoil'
 import { useRecoilState } from 'recoil'
+import { useLocation } from 'react-router-dom';
+import queryString from 'query-string'
 
 const useStyles = makeStyles({
     root: {
@@ -67,11 +69,13 @@ function StyledRadio(props) {
 
 export default function CustomizedRadios() {
     const [, setRadioValue] = useRecoilState(sortByState)
+    const location = useLocation()
+    const { sortby } = queryString.parse(location.search)
 
     return (
         <FormControl component="fieldset" style={{ zIndex: 5 }}>
             <FormLabel component="legend">Sort by</FormLabel>
-            <RadioGroup defaultValue="publishedAt" aria-label="sortby" name="customized-radios">
+            <RadioGroup defaultValue={sortby ? sortby : 'publishedAt'} aria-label="sortby" name="customized-radios">
                 <FormControlLabel value="relevancy" onChange={(e) => setRadioValue(e.target.value)} control={<StyledRadio />} label="Relevancy" />
                 <FormControlLabel value="popularity" onChange={(e) => setRadioValue(e.target.value)} control={<StyledRadio />} label="Popularity" />
                 <FormControlLabel value="publishedAt" onChange={(e) => setRadioValue(e.target.value)} control={<StyledRadio />} label="Published At" />

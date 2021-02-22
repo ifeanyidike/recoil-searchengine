@@ -5,11 +5,12 @@ import App from './App';
 import { RecoilRoot } from 'recoil';
 import { BrowserRouter } from 'react-router-dom'
 import ErrorBoundary from './components/ErrorBoundary'
+import Fallback from './components/Fallback';
 
 ReactDOM.render(
   <RecoilRoot>
     <ErrorBoundary >
-      <React.Suspense fallback={<div>Loading...</div>}>
+      <React.Suspense fallback={<Fallback />}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
