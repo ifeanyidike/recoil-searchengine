@@ -2,17 +2,15 @@ import React, { useEffect, useState } from 'react'
 import '../styles/Searchbar.css'
 import { IoIosSearch } from 'react-icons/io'
 import { GoSearch } from 'react-icons/go'
-import { FaCaretDown, FaSortAmountUp } from 'react-icons/fa'
+import { FaSortAmountUp } from 'react-icons/fa'
 import { MdClear } from 'react-icons/md'
 import { useRecoilState } from 'recoil'
-import { sortDropdownState, headlineDropdownState, qStringState } from '../recoil'
+import { sortDropdownState } from '../recoil'
 import SortChoices from '../components/SortChoices'
 
 const Searchbar = ({ search, setSearch, toggleShow }) => {
 
     const [showDropdown, setShowDropdown] = useRecoilState(sortDropdownState)
-    const [headlineDropdown, setHeadlineDropdown] = useRecoilState(headlineDropdownState)
-    const [, setQString] = useRecoilState(qStringState)
 
     const [showCross, setShowCross] = useState(false)
 
@@ -22,12 +20,6 @@ const Searchbar = ({ search, setSearch, toggleShow }) => {
 
     const handleSortToggle = () => {
         setShowDropdown(!showDropdown)
-        setHeadlineDropdown(false)
-    }
-
-    const handleCaretDownToggle = () => {
-        setHeadlineDropdown(!headlineDropdown)
-        setShowDropdown(false)
     }
 
     return (

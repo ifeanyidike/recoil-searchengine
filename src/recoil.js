@@ -27,6 +27,12 @@ export const qStringState = atom({
     default: ''
 })
 
+export const pageNumberSelector = selector({
+    key: 'pageNumberState',
+    get: ({ get }) => (get(pageState)),
+    set: ({ set }, newVal) => set(pageState, newVal)
+})
+
 export const allNewsQuery = selector({
     key: 'allnewsQuery',
     get: async ({ get }) => {

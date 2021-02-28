@@ -1,13 +1,11 @@
+import React from 'react'
 import { IconButton } from '@material-ui/core'
-import React, { useEffect } from 'react'
 import { MdChevronLeft, MdChevronRight, MdFirstPage, MdLastPage } from 'react-icons/md'
-import { useHistory } from 'react-router-dom'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { allNewsQuery, pageState } from '../recoil'
 import "../styles/Pagination.css"
 
 const Pagination = () => {
-    const history = useHistory()
     const allnews = useRecoilValue(allNewsQuery)
     const [page, setPage] = useRecoilState(pageState)
     const perPage = 20
@@ -29,6 +27,7 @@ const Pagination = () => {
 
             {
                 [...Array(linkPerPage).keys()].map((x, ind) =>
+                    x + page <= lastPage &&
                     <IconButton key={ind}
                         className='pagebutton'
                         style={{
@@ -45,7 +44,7 @@ const Pagination = () => {
             <IconButton onClick={() => setPage(prevState => prevState === lastPage ? prevState : prevState + 1)}>
                 <MdChevronRight />
             </IconButton>
-            <IconButton onClick={() => setPage(10)}>
+            <IconButton onClick={() => setPage(lastPage)}>
                 <MdLastPage />
             </IconButton>
         </div>

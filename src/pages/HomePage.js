@@ -9,15 +9,18 @@ import { qStringState, sortByState } from '../recoil'
 
 const Home = () => {
     const [search, setSearch] = useState('')
-    const [qString, setQString] = useRecoilState(qStringState)
     const [radioValue] = useRecoilState(sortByState)
-
+    const [, setQString] = useRecoilState(qStringState)
     const history = useHistory()
 
     const handleSubmit = e => {
         e.preventDefault()
-        history.push(`/search?q=${search}&sortby=${radioValue}`)
+        if (search) {
+            history.push(`/search?q=${search}&sortby=${radioValue}`)
+            setQString(search)
+        }
     }
+
     return (
         <div className='home'>
             <main>

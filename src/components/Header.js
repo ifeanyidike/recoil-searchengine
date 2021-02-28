@@ -5,7 +5,6 @@ import { qStringState } from '../recoil'
 import { useRecoilState } from 'recoil'
 import { Link, useHistory } from 'react-router-dom'
 
-
 const Header = () => {
     const [search, setSearch] = useState('')
     const [, setQString] = useRecoilState(qStringState)

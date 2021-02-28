@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useLocation, useHistory } from 'react-router-dom'
-import queryString from 'query-string'
+import React, { useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import { qStringState, sortByState, allNewsQuery } from '../recoil'
 import { useRecoilValue, useRecoilState } from 'recoil'
 import Header from '../components/Header'
@@ -10,25 +9,15 @@ import Pagination from '../components/Pagination'
 import Footer from '../components/Footer'
 
 const SearchPage = () => {
-    const location = useLocation()
     const history = useHistory()
-    const { q, sortby } = queryString.parse(location.search)
-
-    const [qString, setQString] = useRecoilState(qStringState)
-    const [sortString, setSortString] = useRecoilState(sortByState)
-
-    useEffect(() => {
-        setQString(q)
-        setSortString(sortby)
-
-    }, [q, sortby, setQString, setSortString,])
+    const [qString] = useRecoilState(qStringState)
+    const [sortString] = useRecoilState(sortByState)
 
     useEffect(() => {
         if (qString) {
             history.push(`/search?q=${qString}&sortby=${sortString}`)
         }
     }, [sortString, qString, history])
-
 
     const allnews = useRecoilValue(allNewsQuery)
 
@@ -48,7 +37,6 @@ const SearchPage = () => {
                     </div>
                     <Pagination />
                 </div>
-
 
                 <main>
                     {
@@ -77,11 +65,8 @@ const SearchPage = () => {
                                 null
                     }
                 </main>
-
             </div>
             <Footer />
-
-            {/* <pre>{JSON.stringify(allnews, null, 2)}</pre> */}
         </div>
     )
 }
